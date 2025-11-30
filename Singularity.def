@@ -1,0 +1,25 @@
+Bootstrap: docker
+From: ubuntu:22.04
+Stage: spython-base
+
+%labels
+
+    MAINTAINER Arthur Zalevsky <aozalevsky@gmail.com>
+
+%post
+
+    DEBIAN_FRONTEND=noninteractive
+
+    # Install common dependencies
+    apt-get update -y && apt-get install -y wget curl git subversion build-essential python-is-python3
+
+    # Build molprobity from source code
+    mkdir /opt/molprobity && cd /opt/molprobity && curl -O https://raw.githubusercontent.com/rlabduke/MolProbity/master/install_via_bootstrap.sh && bash ./install_via_bootstrap.sh 4
+
+%environment
+
+    export PATH=${PATH}:/opt/molprobity/build/bin
+
+%runscript
+
+    exec /bin/bash "$@"
