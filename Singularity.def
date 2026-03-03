@@ -31,7 +31,7 @@ Stage: spython-base
 
     cd /opt/molprobity
     curl -o bootstrap.py -L https://github.com/cctbx/cctbx_project/raw/master/libtbx/auto_build/bootstrap.py
-    CI=true python3 bootstrap.py --builder=molprobity --nproc={{ NPROC }} --python=38 --use-conda && rm -rf bootstrap.py
+    CI=true python3 bootstrap.py --builder=molprobity --nproc={{ NPROC }} --python=310 --use-conda && rm -rf bootstrap.py
 
     curl https://raw.githubusercontent.com/aozalevsky/molprobity_container/refs/heads/main/src/molprobity.version.py -o /usr/local/bin/molprobity.version.py && chmod +x /usr/local/bin/molprobity.version.py
 %environment
