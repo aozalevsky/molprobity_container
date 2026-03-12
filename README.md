@@ -33,6 +33,22 @@ The container provides:
 
 ## Installation
 
+### Pulling image from the repo
+
+To download a pre-built container use the following command:
+
+```
+apptainer pull molprobity.sif oras://ghcr.io/aozalevsky/molprobity:latest
+```
+
+or for the date-tagged version:
+
+```
+apptainer pull molprobity.sif oras://ghcr.io/aozalevsky/molprobity:20260303
+```
+
+### Building image locally
+
 Clone this repository and build the container image:
 
 ``` bash
